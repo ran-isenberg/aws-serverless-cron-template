@@ -1,43 +1,35 @@
 
-# AWS Lambda Handler Cookbook (Python)
+# AWS Serverless Cron Job Template (Python)
 
-[![license](https://img.shields.io/github/license/ran-isenberg/aws-lambda-handler-cookbook)](https://github.com/ran-isenberg/aws-lambda-handler-cookbook/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/ran-isenberg/aws-serverless-cron-template)](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/master/LICENSE)
 ![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.9&color=blue?style=flat-square&logo=python)
-[![codecov](https://codecov.io/gh/ran-isenberg/aws-lambda-handler-cookbook/branch/main/graph/badge.svg?token=P2K7K4KICF)](https://codecov.io/gh/ran-isenberg/aws-lambda-handler-cookbook)
-![version](https://img.shields.io/github/v/release/ran-isenberg/aws-lambda-handler-cookbook)
-![github-star-badge](https://img.shields.io/github/stars/ran-isenberg/aws-lambda-handler-cookbook.svg?style=social)
-![issues](https://img.shields.io/github/issues/ran-isenberg/aws-lambda-handler-cookbook)
+[![codecov](https://codecov.io/gh/ran-isenberg/aws-serverless-cron-template/branch/main/graph/badge.svg?token=P2K7K4KICF)](https://codecov.io/gh/ran-isenberg/aws-serverless-cron-template)
+![version](https://img.shields.io/github/v/release/ran-isenberg/aws-serverless-cron-template)
+![github-star-badge](https://img.shields.io/github/stars/ran-isenberg/aws-serverless-cron-template.svg?style=social)
+![issues](https://img.shields.io/github/issues/ran-isenberg/aws-serverless-cron-template)
 
-![alt text](https://github.com/ran-isenberg/aws-lambda-handler-cookbook/blob/main/docs/media/banner.png?raw=true)
+![alt text](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/main/docs/media/banner.png?raw=true)
 
 This project provides a working, open source based, AWS Lambda handler skeleton Python code including DEPLOYMENT code with CDK and a pipeline.
 
 This project can serve as a template for new Serverless services - CDK deployment code, pipeline and handler are covered.
 
-**[📜Documentation](https://ran-isenberg.github.io/aws-lambda-handler-cookbook/)** | **[Blogs website](https://www.ranthebuilder.cloud)**
+**[📜Documentation](https://ran-isenberg.github.io/aws-serverless-cron-template/)** | **[Blogs website](https://www.ranthebuilder.cloud)**
 > **Contact details | ran.isenberg@ranthebuilder.cloud**
 
 
 ## **The Problem**
 
-Starting a Serverless service can be overwhelming. You need to figure out many questions and challenges that have nothing to do with your business domain:
 
-- How to deploy to the cloud? What IAC framework do you choose?
-- How to write a SaaS-oriented CI/CD pipeline? What does it need to contain?
-- How do you handle observability, logging, tracing, metrics?
-- How do you handle testing?
-- What makes an AWS Lambda handler resilient, traceable, and easy to maintain? How do you write such a code?
 
 
 ## **The Solution**
 
 This project aims to reduce cognitive load and answer these questions for you by providing a skeleton Python Serverless service template that implements best practices for AWS Lambda, Serverless CI/CD, and AWS CDK in one template project.
 
-### Serverless Service - The Order service
+### Serverless Service - The Cron Job Service
 
-- This project provides a working orders service where customers can create orders of items.
 
-- The project deploys an API GW with an AWS Lambda integration under the path POST /api/orders/ and stores data in a DynamoDB table.
 
 ### **Features**
 
@@ -88,7 +80,7 @@ Read our code of conduct [here.](https://github.com/ran-isenberg/aws-lambda-hand
 * Twitter: [IsenbergRan](https://twitter.com/IsenbergRan)
 
 ## Credits
-* [AWS Lambda Powertools (Python)](https://github.com/awslabs/aws-lambda-powertools-python)
+* [AWS Lambda Handler Cookbook (Python)](https://github.com/ran-isenberg/aws-lambda-handler-cookbook)
 
 ## License
 This library is licensed under the MIT License. See the [LICENSE](https://github.com/ran-isenberg/aws-lambda-handler-cookbook/blob/main/LICENSE) file.
