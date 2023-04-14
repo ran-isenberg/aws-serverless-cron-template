@@ -4,10 +4,9 @@ from pathlib import Path
 from aws_cdk import Stack, Tags
 from constructs import Construct
 from git import Repo
-from my_service.api_construct import ApiConstruct  # type: ignore
+from my_service.cron_construct import CronConstruct  # type: ignore
 
-from cdk.my_service.configuration.configuration_construct import ConfigurationStore
-from cdk.my_service.constants import CONFIGURATION_NAME, ENVIRONMENT, SERVICE_NAME
+from cdk.my_service.constants import SERVICE_NAME
 
 
 def get_stack_name() -> str:
@@ -27,10 +26,6 @@ class ServiceStack(Stack):
 
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
-        Tags.of(self).add('service_name', 'Order')
+        Tags.of(self).add('service_name', SERVICE_NAME)
 
-        # This construct should be deployed in a different repo and have its own pipeline so updates can be decoupled
-        # from running the service pipeline and without redeploying the service lambdas. For the sake of this template
-        # example, it is deployed as part of the service stack
-        self.dynamic_configuration = ConfigurationStore(self, f'{id}dynamic_conf'[0:64], ENVIRONMENT, SERVICE_NAME, CONFIGURATION_NAME)
-        self.lambdas = ApiConstruct(self, f'{id}Service'[0:64], self.dynamic_configuration.config_app.name)
+        self.lambdas = CronConstruct(self, f'{id}Service'[0:64])
