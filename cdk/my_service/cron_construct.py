@@ -31,7 +31,7 @@ class CronConstruct(Construct):
             self,
             constants.LAMBDA_LAYER_NAME,
             entry=constants.COMMON_LAYER_BUILD_FOLDER,
-            compatible_runtimes=[_lambda.Runtime.PYTHON_3_9],
+            compatible_runtimes=[_lambda.Runtime.PYTHON_3_10],
             removal_policy=RemovalPolicy.DESTROY,
         )
 
@@ -40,7 +40,7 @@ class CronConstruct(Construct):
         return _lambda.Function(
             self,
             'CronJob',
-            runtime=_lambda.Runtime.PYTHON_3_9,
+            runtime=_lambda.Runtime.PYTHON_3_10,
             code=_lambda.Code.from_asset(constants.BUILD_FOLDER),
             handler='service.handlers.cron_job.start_cron_job',
             environment={
