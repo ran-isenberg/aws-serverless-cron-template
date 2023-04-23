@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aws_serverless_cron"
 version = "1.0.0"
-description = "This repository provides a working, deployable, open source based, Serverless cron job lambda"
+description = "This repository provides a working, deployable, open source based, Serverless cron jobs"
 authors = ["Ran Isenberg"]
 classifiers=[
     "Development Status :: 5 - Production/Stable",
@@ -12,7 +12,7 @@ classifiers=[
 ]
 repository="https://github.com/ran-isenberg/aws-lambda-handler-cookbook"
 readme = "README.md"
-keywords = ["aws lambda cron job", "AWS eventbridge schedule", "serverless cron job"]
+keywords = ["aws lambda cron job", "AWS eventbridge scheduler", "AWS eventbridge rules", "serverless cron job"]
 license = "MIT-0"
 
 [tool.poetry.dependencies]

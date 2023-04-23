@@ -8,5 +8,9 @@ class Observability(BaseModel):
     LOG_LEVEL: Literal['DEBUG', 'INFO', 'ERROR', 'CRITICAL', 'WARNING', 'EXCEPTION']
 
 
-class CronEnvVars(Observability):
+class RuleEnvVars(Observability):
+    ...
+
+
+class SchedulerEnvVars(Observability):
     ...

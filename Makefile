@@ -51,7 +51,7 @@ integration:
 e2e:
 	pytest tests/e2e  --cov-config=.coveragerc --cov=service --cov-report xml
 
-pr: deps yapf sort pre-commit complex lint lint-docs unit deploy integration e2e
+pr: deps yapf sort pre-commit complex lint unit deploy integration e2e
 
 yapf:
 	yapf -i -vv --style=./.style --exclude=.venv --exclude=.build --exclude=cdk.out --exclude=.git  -r .

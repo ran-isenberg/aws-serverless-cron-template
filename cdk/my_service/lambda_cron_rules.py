@@ -1,4 +1,4 @@
-from aws_cdk import Duration, RemovalPolicy, aws_events, aws_events_targets
+from aws_cdk import Duration, aws_events, aws_events_targets
 from aws_cdk import aws_iam as iam
 from aws_cdk import aws_lambda as _lambda
 from aws_cdk import aws_logs
@@ -8,29 +8,22 @@ from constructs import Construct
 import cdk.my_service.constants as constants
 
 
-class LambdaCronConstruct(Construct):
+class LambdaCronRuleConstruct(Construct):
 
-    def __init__(self, scope: Construct, id_: str) -> None:
+    def __init__(self, scope: Construct, id_: str, lambda_layer: PythonLayerVersion) -> None:
         super().__init__(scope, id_)
 
-        self.common_layer = self._build_common_layer()
-        self.cron_lambda = self._create_cron_lambda()
+        self.cron_lambda = self._create_rule_target_lambda(lambda_layer)
+        self.cron_rule = self._create_scheduled_cron_with_rule(self.cron_lambda)
 
-    def _create_scheduled_cron_job(self, target_lambda: _lambda.Function) -> None:
-        # Create an EventBridge rule
-        rule = aws_events.Rule(
+    def _create_scheduled_cron_with_rule(self, target_lambda: _lambda.Function) -> aws_events.Rule:
+        return aws_events.Rule(
             self,
-            'MyCronRule',
-            schedule=aws_events.Schedule.cron(
-                minute='0',
-                hour='12',
-                month='*',
-                week_day='MON-FRI',
-            ),
+            'MyLambdaCron',
+            schedule=aws_events.Schedule.rate(Duration.minutes(60)),
+            targets=[aws_events_targets.LambdaFunction(handler=target_lambda,)],
+            rule_name='MyLambdaCron',
         )
-
-        # Add the Lambda function as a target of the rule
-        rule.add_target(aws_events_targets.LambdaFunction(target_lambda))
 
     def _build_cron_lambda_role(self) -> iam.Role:
         return iam.Role(
@@ -42,16 +35,7 @@ class LambdaCronConstruct(Construct):
             ],
         )
 
-    def _build_common_layer(self) -> PythonLayerVersion:
-        return PythonLayerVersion(
-            self,
-            constants.LAMBDA_LAYER_NAME,
-            entry=constants.COMMON_LAYER_BUILD_FOLDER,
-            compatible_runtimes=[_lambda.Runtime.PYTHON_3_10],
-            removal_policy=RemovalPolicy.DESTROY,
-        )
-
-    def _create_cron_lambda(self) -> _lambda.Function:
+    def _create_rule_target_lambda(self, lambda_layer: PythonLayerVersion) -> _lambda.Function:
         role = self._build_cron_lambda_role()
         return _lambda.Function(
             self,
@@ -67,7 +51,7 @@ class LambdaCronConstruct(Construct):
             retry_attempts=0,
             timeout=Duration.minutes(constants.API_HANDLER_LAMBDA_TIMEOUT),
             memory_size=constants.API_HANDLER_LAMBDA_MEMORY_SIZE,
-            layers=[self.common_layer],
+            layers=[lambda_layer],
             role=role,
             log_retention=aws_logs.RetentionDays.ONE_DAY,
         )
