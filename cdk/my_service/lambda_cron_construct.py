@@ -1,4 +1,4 @@
-from aws_cdk import Duration, RemovalPolicy
+from aws_cdk import Duration, RemovalPolicy, aws_events, aws_events_targets
 from aws_cdk import aws_iam as iam
 from aws_cdk import aws_lambda as _lambda
 from aws_cdk import aws_logs
@@ -8,13 +8,29 @@ from constructs import Construct
 import cdk.my_service.constants as constants
 
 
-class CronConstruct(Construct):
+class LambdaCronConstruct(Construct):
 
     def __init__(self, scope: Construct, id_: str) -> None:
         super().__init__(scope, id_)
 
         self.common_layer = self._build_common_layer()
         self.cron_lambda = self._create_cron_lambda()
+
+    def _create_scheduled_cron_job(self, target_lambda: _lambda.Function) -> None:
+        # Create an EventBridge rule
+        rule = aws_events.Rule(
+            self,
+            'MyCronRule',
+            schedule=aws_events.Schedule.cron(
+                minute='0',
+                hour='12',
+                month='*',
+                week_day='MON-FRI',
+            ),
+        )
+
+        # Add the Lambda function as a target of the rule
+        rule.add_target(aws_events_targets.LambdaFunction(target_lambda))
 
     def _build_cron_lambda_role(self) -> iam.Role:
         return iam.Role(

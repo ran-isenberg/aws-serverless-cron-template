@@ -21,14 +21,14 @@ tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy
 
 [[package]]
 name = "aws-cdk-asset-awscli-v1"
-version = "2.2.145"
+version = "2.2.148"
 description = "A library that contains the AWS CLI for use in Lambda Layers"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "aws-cdk.asset-awscli-v1-2.2.145.tar.gz", hash = "sha256:74098ca36a0e3d0655c98638174c77f1c6599f1b16fb4e4387721a955b431aac"},
-    {file = "aws_cdk.asset_awscli_v1-2.2.145-py3-none-any.whl", hash = "sha256:bf736e03cff78b6bad51777cfa204985368975d5b0139434ef6d7e069b757bb7"},
+    {file = "aws-cdk.asset-awscli-v1-2.2.148.tar.gz", hash = "sha256:13138863a280f1c70edc698f18ed9f7451e298155aebdf1c05eb66dbdee02ab6"},
+    {file = "aws_cdk.asset_awscli_v1-2.2.148-py3-none-any.whl", hash = "sha256:403c685271f747193fd6357904deea0afa6b77975ccc2a3de93c4f4ff4325134"},
 ]
 
 [package.dependencies]
@@ -55,14 +55,14 @@ typeguard = ">=2.13.3,<2.14.0"
 
 [[package]]
 name = "aws-cdk-asset-node-proxy-agent-v5"
-version = "2.0.120"
+version = "2.0.125"
 description = "@aws-cdk/asset-node-proxy-agent-v5"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "aws-cdk.asset-node-proxy-agent-v5-2.0.120.tar.gz", hash = "sha256:5c885003685fe86aafe1611a4f1310f1cda62b27036e3528e1fe4e16ba3a3ac4"},
-    {file = "aws_cdk.asset_node_proxy_agent_v5-2.0.120-py3-none-any.whl", hash = "sha256:6264375b03fa62a3a2e67e360517276874ec814dc4367d7c9eff55a4e8dff155"},
+    {file = "aws-cdk.asset-node-proxy-agent-v5-2.0.125.tar.gz", hash = "sha256:4d3982ce3258691ab051ed9665d947185c277572139480384ce42bbd8c642e6d"},
+    {file = "aws_cdk.asset_node_proxy_agent_v5-2.0.125-py3-none-any.whl", hash = "sha256:0b212c8094e48db78000f15741a0806b4ab1014b30a618f6b00de18a08170a94"},
 ]
 
 [package.dependencies]
@@ -72,18 +72,18 @@ typeguard = ">=2.13.3,<2.14.0"
 
 [[package]]
 name = "aws-cdk-aws-lambda-python-alpha"
-version = "2.75.1a0"
+version = "2.76.0a0"
 description = "The CDK Construct Library for AWS Lambda in Python"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "aws-cdk.aws-lambda-python-alpha-2.75.1a0.tar.gz", hash = "sha256:af6d665e37e9ea67ac75efbb6e39dd2eef430601524ea848e19f515819be765e"},
-    {file = "aws_cdk.aws_lambda_python_alpha-2.75.1a0-py3-none-any.whl", hash = "sha256:d882147e442a534282c86b82d6d838e12c6d80ac7fdc8792f217b5a48870abfa"},
+    {file = "aws-cdk.aws-lambda-python-alpha-2.76.0a0.tar.gz", hash = "sha256:56c62d364553341d6c0ed6312cdf8a930d3202df2ca1c964387118aa64f01e10"},
+    {file = "aws_cdk.aws_lambda_python_alpha-2.76.0a0-py3-none-any.whl", hash = "sha256:53c71f02f2977568df1e4d265d18b021e6095c8279e01b2e3a9be61ba7420adb"},
 ]
 
 [package.dependencies]
-aws-cdk-lib = "2.75.1"
+aws-cdk-lib = "2.76.0"
 constructs = ">=10.0.0,<11.0.0"
 jsii = ">=1.78.1,<2.0.0"
 publication = ">=0.0.3"
@@ -91,14 +91,14 @@ typeguard = ">=2.13.3,<2.14.0"
 
 [[package]]
 name = "aws-cdk-lib"
-version = "2.75.1"
+version = "2.76.0"
 description = "Version 2 of the AWS Cloud Development Kit library"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "aws-cdk-lib-2.75.1.tar.gz", hash = "sha256:7b9c285ea9681e59c215e2ad3917b046ef47c48d83bc9c555b425a37df30d34d"},
-    {file = "aws_cdk_lib-2.75.1-py3-none-any.whl", hash = "sha256:1a4a61ce69280f522b7cee7b910284ab01ef091af220e7e0fad8433fd58e4325"},
+    {file = "aws-cdk-lib-2.76.0.tar.gz", hash = "sha256:988fe73c5e555487788b1c66badbcf3885081bf7bc8111373ca2d86b60680bd0"},
+    {file = "aws_cdk_lib-2.76.0-py3-none-any.whl", hash = "sha256:59575b5ee0fee4925f12b6cb8d832c05346b6531e606d4c4d449e97c118597f8"},
 ]
 
 [package.dependencies]
@@ -112,14 +112,14 @@ typeguard = ">=2.13.3,<2.14.0"
 
 [[package]]
 name = "aws-lambda-powertools"
-version = "2.14.0"
+version = "2.14.1"
 description = "AWS Lambda Powertools is a developer toolkit to implement Serverless best practices and increase developer velocity."
 category = "main"
 optional = false
 python-versions = ">=3.7.4,<4.0.0"
 files = [
-    {file = "aws_lambda_powertools-2.14.0-py3-none-any.whl", hash = "sha256:26f9aedc345e1d83b8973f95b57a1aa537002ba1e001f1f10f92aa02a0349adf"},
-    {file = "aws_lambda_powertools-2.14.0.tar.gz", hash = "sha256:ad1fa3a7a36bbc775eae063811547e83d88c479608363b73014b24acf1ec9113"},
+    {file = "aws_lambda_powertools-2.14.1-py3-none-any.whl", hash = "sha256:3d147c57f146b360dcc74e23c499bdc390c68a11f66c7cb6927d392bdedfd5e4"},
+    {file = "aws_lambda_powertools-2.14.1.tar.gz", hash = "sha256:7fab049358b10293f59596fb6858b8f5cb587ba957c71a6016c18fbf1045b5da"},
 ]
 
 [package.dependencies]
@@ -153,18 +153,18 @@ wrapt = "*"
 
 [[package]]
 name = "boto3"
-version = "1.26.115"
+version = "1.26.118"
 description = "The AWS SDK for Python"
 category = "dev"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "boto3-1.26.115-py3-none-any.whl", hash = "sha256:deb53ad15ff0e75ae0be6d7115a2d34e4bafb0541484485f0feb61dabdfb5513"},
-    {file = "boto3-1.26.115.tar.gz", hash = "sha256:2272a060005bf8299f7342cbf1344304eb44b7060cddba6784f676e3bc737bb8"},
+    {file = "boto3-1.26.118-py3-none-any.whl", hash = "sha256:1ff703152553f4d5fc9774071d114dbf06ec661eb1b29b6051f6b1f9d0c24873"},
+    {file = "boto3-1.26.118.tar.gz", hash = "sha256:d0ed43228952b55c9f44d1c733f74656418c39c55dbe36bc37feeef6aa583ded"},
 ]
 
 [package.dependencies]
-botocore = ">=1.29.115,<1.30.0"
+botocore = ">=1.29.118,<1.30.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -173,14 +173,14 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.29.115"
+version = "1.29.118"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "botocore-1.29.115-py3-none-any.whl", hash = "sha256:dff327977d7c9f98f2dc54b51b8f70326952dd50ae23b885fdfa8bfeec014b76"},
-    {file = "botocore-1.29.115.tar.gz", hash = "sha256:58eee8cf8f4f3e515df29f6dc535dd86ed3f4cea40999c5bc74640ff40bdc71f"},
+    {file = "botocore-1.29.118-py3-none-any.whl", hash = "sha256:44cb088a73b02dd716c5c5715143a64d5f10388957285246e11f3cc893eebf9d"},
+    {file = "botocore-1.29.118.tar.gz", hash = "sha256:b51fc5d50cbc43edaf58b3ec4fa933b82755801c453bf8908c8d3e70ae1142c1"},
 ]
 
 [package.dependencies]
@@ -221,14 +221,14 @@ exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "cdk-nag"
-version = "2.25.16"
+version = "2.26.3"
 description = "Check CDK v2 applications for best practices using a combination on available rule packs."
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "cdk-nag-2.25.16.tar.gz", hash = "sha256:7284f4e8debfee6eeec99dc69753f65d657b4fedfdf604b68f31323fdcb72f5a"},
-    {file = "cdk_nag-2.25.16-py3-none-any.whl", hash = "sha256:66dd1d6c6c28215ce23eb30a796457ac4216444fcc68e937977635dceb4603cc"},
+    {file = "cdk-nag-2.26.3.tar.gz", hash = "sha256:e41dcc71a419ae8cef9d64c63aac7cb10079e6c5fbcf817bb5dac9803d584ada"},
+    {file = "cdk_nag-2.26.3-py3-none-any.whl", hash = "sha256:edcd78ff7a27254073e0999ed0941bf54acc87326c89fb7debf6be308f9f834a"},
 ]
 
 [package.dependencies]
@@ -376,14 +376,14 @@ files = [
 
 [[package]]
 name = "constructs"
-version = "10.2.1"
+version = "10.2.4"
 description = "A programming model for software-defined state"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "constructs-10.2.1-py3-none-any.whl", hash = "sha256:398d32c65d2945949195dcc642bc7bd7b7552758d274fa0e1616ca0069d01a25"},
-    {file = "constructs-10.2.1.tar.gz", hash = "sha256:36e86d1092edd1f2ee8895d21c49bdabf81e62deb5f18329b275ee8ec1f67aa3"},
+    {file = "constructs-10.2.4-py3-none-any.whl", hash = "sha256:fd720f87c3c6f23b1fb2ddc1b309b5d378588bebc8365e85ea80a8968a72de3f"},
+    {file = "constructs-10.2.4.tar.gz", hash = "sha256:c8a4fd974a0b1f758c90fab6343cba94aa28644b3e15ce2b07662b208f12d07d"},
 ]
 
 [package.dependencies]
@@ -493,14 +493,14 @@ wmi = ["wmi (>=1.5.1,<2.0.0)"]
 
 [[package]]
 name = "email-validator"
-version = "2.0.0.post1"
+version = "2.0.0.post2"
 description = "A robust email address syntax and deliverability validation library."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "email_validator-2.0.0.post1-py3-none-any.whl", hash = "sha256:26efa040ae50e65cc130667080fa0f372f0ac3d852923a76166a54cf6a0ee780"},
-    {file = "email_validator-2.0.0.post1.tar.gz", hash = "sha256:314114acd9421728ae6f74d0c0a5d6ec547d44ef4f20425af4093828af2266f3"},
+    {file = "email_validator-2.0.0.post2-py3-none-any.whl", hash = "sha256:2466ba57cda361fb7309fd3d5a225723c788ca4bbad32a0ebd5373b99730285c"},
+    {file = "email_validator-2.0.0.post2.tar.gz", hash = "sha256:1ff6e86044200c56ae23595695c54e9614f4a9551e0e393614f764860b3d7900"},
 ]
 
 [package.dependencies]
@@ -916,14 +916,14 @@ mkdocs = ">=0.17"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.1.6"
+version = "9.1.7"
 description = "Documentation that simply works"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mkdocs_material-9.1.6-py3-none-any.whl", hash = "sha256:f2eb1d40db89da9922944833c1387207408f8937e1c2b46ab86e0c8f170b71e0"},
-    {file = "mkdocs_material-9.1.6.tar.gz", hash = "sha256:2e555152f9771646bfa62dc78a86052876183eff69ce30db03a33e85702b21fc"},
+    {file = "mkdocs_material-9.1.7-py3-none-any.whl", hash = "sha256:4ab0e2f378bb811ca44a001a63d687403a2725f0485c41d6a2a7aed3aa34cd31"},
+    {file = "mkdocs_material-9.1.7.tar.gz", hash = "sha256:244f85d13e3aa773aaa66c74b95bb4b00d89a3a917f6f9d33704a5655bf0c423"},
 ]
 
 [package.dependencies]
@@ -1548,14 +1548,14 @@ url = "cdk"
 
 [[package]]
 name = "setuptools"
-version = "67.6.1"
+version = "67.7.1"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "setuptools-67.6.1-py3-none-any.whl", hash = "sha256:e728ca814a823bf7bf60162daf9db95b93d532948c4c0bea762ce62f60189078"},
-    {file = "setuptools-67.6.1.tar.gz", hash = "sha256:257de92a9d50a60b8e22abfcbb771571fde0dbf3ec234463212027a4eeecbe9a"},
+    {file = "setuptools-67.7.1-py3-none-any.whl", hash = "sha256:6f0839fbdb7e3cfef1fc38d7954f5c1c26bf4eebb155a55c9bf8faf997b9fb67"},
+    {file = "setuptools-67.7.1.tar.gz", hash = "sha256:bb16732e8eb928922eabaa022f881ae2b7cdcfaf9993ef1f5e841a96d32b8e0c"},
 ]
 
 [package.extras]
@@ -1697,24 +1697,24 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "virtualenv"
-version = "20.21.0"
+version = "20.22.0"
 description = "Virtual Python Environment builder"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "virtualenv-20.21.0-py3-none-any.whl", hash = "sha256:31712f8f2a17bd06234fa97fdf19609e789dd4e3e4bf108c3da71d710651adbc"},
-    {file = "virtualenv-20.21.0.tar.gz", hash = "sha256:f50e3e60f990a0757c9b68333c9fdaa72d7188caa417f96af9e52407831a3b68"},
+    {file = "virtualenv-20.22.0-py3-none-any.whl", hash = "sha256:48fd3b907b5149c5aab7c23d9790bea4cac6bc6b150af8635febc4cfeab1275a"},
+    {file = "virtualenv-20.22.0.tar.gz", hash = "sha256:278753c47aaef1a0f14e6db8a4c5e1e040e90aea654d0fc1dc7e0d8a42616cc3"},
 ]
 
 [package.dependencies]
 distlib = ">=0.3.6,<1"
-filelock = ">=3.4.1,<4"
-platformdirs = ">=2.4,<4"
+filelock = ">=3.11,<4"
+platformdirs = ">=3.2,<4"
 
 [package.extras]
-docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx (>=6.1.3)", "sphinx-argparse (>=0.4)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=22.12)"]
-test = ["covdefaults (>=2.2.2)", "coverage (>=7.1)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23)", "pytest (>=7.2.1)", "pytest-env (>=0.8.1)", "pytest-freezegun (>=0.4.2)", "pytest-mock (>=3.10)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)"]
+docs = ["furo (>=2023.3.27)", "proselint (>=0.13)", "sphinx (>=6.1.3)", "sphinx-argparse (>=0.4)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=22.12)"]
+test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest (>=7.3.1)", "pytest-env (>=0.8.1)", "pytest-freezegun (>=0.4.2)", "pytest-mock (>=3.10)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)"]
 
 [[package]]
 name = "watchdog"

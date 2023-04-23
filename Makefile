@@ -10,7 +10,7 @@ dev:
 
 lint:
 	@echo "Running flake8"
-	flake8 service/* cdk/* tests/* docs/examples/* --exclude patterns='build,cdk.json,cdk.context.json,.yaml'
+	flake8 service/* cdk/* tests/* --exclude patterns='build,cdk.json,cdk.context.json,.yaml'
 	@echo "Running mypy"
 	make mypy-lint
 
@@ -27,7 +27,7 @@ pre-commit:
 	pre-commit run -a --show-diff-on-failure
 
 mypy-lint:
-	mypy --pretty service docs/examples cdk tests
+	mypy --pretty service cdk tests
 
 deps:
 	poetry export --only=dev --without-hashes --format=requirements.txt > dev_requirements.txt
