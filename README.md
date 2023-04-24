@@ -7,7 +7,7 @@
 ![github-star-badge](https://img.shields.io/github/stars/ran-isenberg/aws-serverless-cron-template.svg?style=social)
 ![issues](https://img.shields.io/github/issues/ran-isenberg/aws-serverless-cron-template)
 
-![alt text](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/main//banner.png?raw=true)
+![alt text](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/main/banner.png?raw=true)
 
 This project provides a working, open source based, Serverless cron jobs Python code including DEPLOYMENT code with CDK and a pipeline.
 
@@ -54,10 +54,10 @@ The utilities cover multiple aspect of a production-ready service, including:
 ## Getting started
 ### **Prerequisites**
 
-* **Docker** - install [Docker](https://www.docker.com/){target="_blank"}. Required for the Lambda layer packaging process.
+* **Docker** - install [Docker](https://www.docker.com/). Required for the Lambda layer packaging process.
 * **[AWS CDK](cdk.md)** - Required for synth & deploying the AWS Cloudformation stack.
 * Python 10
-* [poetry](https://pypi.org/project/poetry/){target="_blank"} - Make sure to run ``poetry config --local virtualenvs.in-project true`` so all dependencies are installed in the project '.venv' folder.
+* [poetry](https://pypi.org/project/poetry/) - Make sure to run ``poetry config --local virtualenvs.in-project true`` so all dependencies are installed in the project '.venv' folder.
 * For Windows based machines, use the Makefile_windows version (rename to Makefile). Default Makefile is for Mac/Linux.
 
 ### **Creating a Developer Environment**
