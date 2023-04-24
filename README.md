@@ -83,10 +83,6 @@ If there's an error in the pre-commit stage, it gets auto fixed. However, are re
 
 Be sure to commit all the changes that ``make pr`` does for you.
 
-### **GitHub Pages Documentation**
-
-``make docs`` can be run to start a local HTTP server with the project's documentation pages.
-
 ### **Building dev/lambda_requirements.txt**
 
 #### lambda_requirements.txt
