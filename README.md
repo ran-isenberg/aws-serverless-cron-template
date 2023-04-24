@@ -2,32 +2,27 @@
 # AWS Serverless Cron Job Template (Python)
 
 [![license](https://img.shields.io/github/license/ran-isenberg/aws-serverless-cron-template)](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/master/LICENSE)
-![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.9&color=blue?style=flat-square&logo=python)
-[![codecov](https://codecov.io/gh/ran-isenberg/aws-serverless-cron-template/branch/main/graph/badge.svg?token=P2K7K4KICF)](https://codecov.io/gh/ran-isenberg/aws-serverless-cron-template)
+![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.10&color=blue?style=flat-square&logo=python)
 ![version](https://img.shields.io/github/v/release/ran-isenberg/aws-serverless-cron-template)
 ![github-star-badge](https://img.shields.io/github/stars/ran-isenberg/aws-serverless-cron-template.svg?style=social)
 ![issues](https://img.shields.io/github/issues/ran-isenberg/aws-serverless-cron-template)
 
 ![alt text](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/main/docs/media/banner.png?raw=true)
 
-This project provides a working, open source based, AWS Lambda handler skeleton Python code including DEPLOYMENT code with CDK and a pipeline.
+This project provides a working, open source based, Serverless cron jobs Python code including DEPLOYMENT code with CDK and a pipeline.
 
-This project can serve as a template for new Serverless services - CDK deployment code, pipeline and handler are covered.
+The project provides the following cron jobs:
 
-**[📜Documentation](https://ran-isenberg.github.io/aws-serverless-cron-template/)** | **[Blogs website](https://www.ranthebuilder.cloud)**
+1. AWS EventBridge rule cron job that triggers a lambda every X minutes
+2. AWS EventBridge rule cron job that triggers a step function once a day at a specific time
+3. AWS EventBridge scheduler cron job that triggers a lambda once a day
+
+The AWS Lambda function use a logger, metrics, tracing, environment variables parsing and input validation best practices.
+
+This project can serve as a template for new Serverless cron jobs or a as a reference. - CDK deployment code, pipeline and handler are covered.
+
+**[Blogs website](https://www.ranthebuilder.cloud)**
 > **Contact details | ran.isenberg@ranthebuilder.cloud**
-
-
-## **The Problem**
-
-
-
-
-## **The Solution**
-
-This project aims to reduce cognitive load and answer these questions for you by providing a skeleton Python Serverless service template that implements best practices for AWS Lambda, Serverless CI/CD, and AWS CDK in one template project.
-
-### Serverless Service - The Cron Job Service
 
 
 
@@ -36,17 +31,9 @@ This project aims to reduce cognitive load and answer these questions for you by
 - Python Serverless service with a recommended file structure.
 - CDK infrastructure with infrastructure tests and security tests.
 - CI/CD pipelines based on Github actions that deploys to AWS with python linters, static code analysis, complexity checks and style formatters.
-- The AWS Lambda handler embodies Serverless best practices and has all the bells and whistles for a proper production ready handler.
-- AWS Lambda handler uses [AWS Lambda Powertools](https://awslabs.github.io/aws-lambda-powertools-python/).
-- Unit, integration and E2E tests.
+- 3 different Serverless cron jobs including the new AWS EventBridge scheduler
+- Unit, integration and E2E test folders ready for implementation.
 
-
-## CDK Deployment
-The CDK code create an API GW with a path of /api/orders which triggers the lambda on 'POST' requests.
-
-The AWS Lambda handler uses a Lambda layer optimization which takes all the packages under the [packages] section in the Pipfile and downloads them in via a Docker instance.
-
-This allows you to package any custom dependencies you might have, just add them to the Pipfile under the [packages] section.
 
 ## Serverless Best Practices
 The AWS Lambda handler will implement multiple best practice utilities.
@@ -65,7 +52,58 @@ The utilities cover multiple aspect of a production-ready service, including:
 - [CDK Best practices](https://github.com/ran-isenberg/aws-lambda-handler-cookbook)
 
 ## Getting started
-Head over to the complete project documentation pages at GitHub pages at [https://ran-isenberg.github.io/aws-lambda-handler-cookbook](https://ran-isenberg.github.io/aws-lambda-handler-cookbook/)
+### **Prerequisites**
+
+* **Docker** - install [Docker](https://www.docker.com/){target="_blank"}. Required for the Lambda layer packaging process.
+* **[AWS CDK](cdk.md)** - Required for synth & deploying the AWS Cloudformation stack.
+* Python 10
+* [poetry](https://pypi.org/project/poetry/){target="_blank"} - Make sure to run ``poetry config --local virtualenvs.in-project true`` so all dependencies are installed in the project '.venv' folder.
+* For Windows based machines, use the Makefile_windows version (rename to Makefile). Default Makefile is for Mac/Linux.
+
+### **Creating a Developer Environment**
+
+1. Run ``make dev``
+2. Run ``poetry install``
+
+#### **Deploy CDK**
+
+Create a cloudformation stack by running ``make deploy``.
+
+### **Deleting the stack**
+
+CDK destroy can be run with ``make destroy``.
+
+### **Preparing Code for PR**
+
+Run ``make pr``. This command will run all the required checks, pre commit hooks, linters, code formats, flake8 and tests, so you can be sure GitHub's pipeline will pass.
+
+The command auto fixes errors in the code for you.
+
+If there's an error in the pre-commit stage, it gets auto fixed. However, are required to run ``make pr`` again so it continues to the next stages.
+
+Be sure to commit all the changes that ``make pr`` does for you.
+
+### **GitHub Pages Documentation**
+
+``make docs`` can be run to start a local HTTP server with the project's documentation pages.
+
+### **Building dev/lambda_requirements.txt**
+
+#### lambda_requirements.txt
+
+CDK requires a requirements.txt in order to create a zip file with the Lambda layer dependencies. It's based on the project's poetry.lock file.
+
+``make deploy` command will generate it automatically for you.
+
+#### dev_requirements.txt
+
+This file is used during GitHub CI to install all the required Python libraries without using poetry.
+
+File contents are created out of the Pipfile.lock.
+
+``make deploy`` ``make deps`` commands generate it automatically.
+
+
 
 ## Code Contributions
 Code contributions are welcomed. Read this [guide.](https://github.com/ran-isenberg/aws-lambda-handler-cookbook/blob/main/CONTRIBUTING.md)
