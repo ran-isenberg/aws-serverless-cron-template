@@ -7,7 +7,7 @@
 ![github-star-badge](https://img.shields.io/github/stars/ran-isenberg/aws-serverless-cron-template.svg?style=social)
 ![issues](https://img.shields.io/github/issues/ran-isenberg/aws-serverless-cron-template)
 
-![alt text](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/main/docs/media/banner.png?raw=true)
+![alt text](https://github.com/ran-isenberg/aws-serverless-cron-template/blob/main//banner.png?raw=true)
 
 This project provides a working, open source based, Serverless cron jobs Python code including DEPLOYMENT code with CDK and a pipeline.
 
