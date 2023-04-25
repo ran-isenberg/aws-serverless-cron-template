@@ -21,14 +21,14 @@ tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy
 
 [[package]]
 name = "aws-cdk-asset-awscli-v1"
-version = "2.2.148"
+version = "2.2.151"
 description = "A library that contains the AWS CLI for use in Lambda Layers"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "aws-cdk.asset-awscli-v1-2.2.148.tar.gz", hash = "sha256:13138863a280f1c70edc698f18ed9f7451e298155aebdf1c05eb66dbdee02ab6"},
-    {file = "aws_cdk.asset_awscli_v1-2.2.148-py3-none-any.whl", hash = "sha256:403c685271f747193fd6357904deea0afa6b77975ccc2a3de93c4f4ff4325134"},
+    {file = "aws-cdk.asset-awscli-v1-2.2.151.tar.gz", hash = "sha256:fb69842e8dc1586972f729908de2714a6c99182cde65e45f327bc2573547f764"},
+    {file = "aws_cdk.asset_awscli_v1-2.2.151-py3-none-any.whl", hash = "sha256:58d7dc84e5212bfbc8233bb7a6372c33f3fa840723c59296fc6dd3ad66b18915"},
 ]
 
 [package.dependencies]
@@ -55,14 +55,14 @@ typeguard = ">=2.13.3,<2.14.0"
 
 [[package]]
 name = "aws-cdk-asset-node-proxy-agent-v5"
-version = "2.0.125"
+version = "2.0.126"
 description = "@aws-cdk/asset-node-proxy-agent-v5"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "aws-cdk.asset-node-proxy-agent-v5-2.0.125.tar.gz", hash = "sha256:4d3982ce3258691ab051ed9665d947185c277572139480384ce42bbd8c642e6d"},
-    {file = "aws_cdk.asset_node_proxy_agent_v5-2.0.125-py3-none-any.whl", hash = "sha256:0b212c8094e48db78000f15741a0806b4ab1014b30a618f6b00de18a08170a94"},
+    {file = "aws-cdk.asset-node-proxy-agent-v5-2.0.126.tar.gz", hash = "sha256:408d1341d78df8876ec40cf7ca65af0f8a3688ded5d50d7a8e36676af0f37a16"},
+    {file = "aws_cdk.asset_node_proxy_agent_v5-2.0.126-py3-none-any.whl", hash = "sha256:d730035a24542fa14784f1a4fbb3a873b36cc1f8cf73b07b352ac118c6db760e"},
 ]
 
 [package.dependencies]
@@ -153,18 +153,18 @@ wrapt = "*"
 
 [[package]]
 name = "boto3"
-version = "1.26.118"
+version = "1.26.119"
 description = "The AWS SDK for Python"
 category = "dev"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "boto3-1.26.118-py3-none-any.whl", hash = "sha256:1ff703152553f4d5fc9774071d114dbf06ec661eb1b29b6051f6b1f9d0c24873"},
-    {file = "boto3-1.26.118.tar.gz", hash = "sha256:d0ed43228952b55c9f44d1c733f74656418c39c55dbe36bc37feeef6aa583ded"},
+    {file = "boto3-1.26.119-py3-none-any.whl", hash = "sha256:c7104f4f805df011dd5528aff63d712ff5261294e547724d03a3b5639bd164ac"},
+    {file = "boto3-1.26.119.tar.gz", hash = "sha256:13a041885068d0bfc2104255f2bcb06a1e0c036bcd009ef018f9953b31c20dde"},
 ]
 
 [package.dependencies]
-botocore = ">=1.29.118,<1.30.0"
+botocore = ">=1.29.119,<1.30.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -173,14 +173,14 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.29.118"
+version = "1.29.119"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "botocore-1.29.118-py3-none-any.whl", hash = "sha256:44cb088a73b02dd716c5c5715143a64d5f10388957285246e11f3cc893eebf9d"},
-    {file = "botocore-1.29.118.tar.gz", hash = "sha256:b51fc5d50cbc43edaf58b3ec4fa933b82755801c453bf8908c8d3e70ae1142c1"},
+    {file = "botocore-1.29.119-py3-none-any.whl", hash = "sha256:c45709682e8c9a945a7cdfa0846599aa4c90403ffbcef8cbc412a6ea92a21d45"},
+    {file = "botocore-1.29.119.tar.gz", hash = "sha256:cd79c7ecf1888dc982ed7e005515324c0e2d7f8aa9ab03a8ee8ece8a2dd3297c"},
 ]
 
 [package.dependencies]
@@ -221,14 +221,14 @@ exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "cdk-nag"
-version = "2.26.3"
+version = "2.26.5"
 description = "Check CDK v2 applications for best practices using a combination on available rule packs."
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "cdk-nag-2.26.3.tar.gz", hash = "sha256:e41dcc71a419ae8cef9d64c63aac7cb10079e6c5fbcf817bb5dac9803d584ada"},
-    {file = "cdk_nag-2.26.3-py3-none-any.whl", hash = "sha256:edcd78ff7a27254073e0999ed0941bf54acc87326c89fb7debf6be308f9f834a"},
+    {file = "cdk-nag-2.26.5.tar.gz", hash = "sha256:d4e069344145bc1b03949e79b2e50249e0e301fe89707dd457ae34c98e0ae595"},
+    {file = "cdk_nag-2.26.5-py3-none-any.whl", hash = "sha256:f0384c9ac147b6870d8d9ae54ab923486bf2996d556d7cc138d69083599cc9c1"},
 ]
 
 [package.dependencies]
@@ -376,14 +376,14 @@ files = [
 
 [[package]]
 name = "constructs"
-version = "10.2.4"
+version = "10.2.6"
 description = "A programming model for software-defined state"
 category = "dev"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "constructs-10.2.4-py3-none-any.whl", hash = "sha256:fd720f87c3c6f23b1fb2ddc1b309b5d378588bebc8365e85ea80a8968a72de3f"},
-    {file = "constructs-10.2.4.tar.gz", hash = "sha256:c8a4fd974a0b1f758c90fab6343cba94aa28644b3e15ce2b07662b208f12d07d"},
+    {file = "constructs-10.2.6-py3-none-any.whl", hash = "sha256:efe2b0bf597203c6aafd62c18f54eb056e57f739640d705f6aa693a09809f501"},
+    {file = "constructs-10.2.6.tar.gz", hash = "sha256:b1411081c24f20ce5023a1ee8de7922abd8b7546d20c06154c2a9887f1118ce0"},
 ]
 
 [package.dependencies]
@@ -916,14 +916,14 @@ mkdocs = ">=0.17"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.1.7"
+version = "9.1.8"
 description = "Documentation that simply works"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mkdocs_material-9.1.7-py3-none-any.whl", hash = "sha256:4ab0e2f378bb811ca44a001a63d687403a2725f0485c41d6a2a7aed3aa34cd31"},
-    {file = "mkdocs_material-9.1.7.tar.gz", hash = "sha256:244f85d13e3aa773aaa66c74b95bb4b00d89a3a917f6f9d33704a5655bf0c423"},
+    {file = "mkdocs_material-9.1.8-py3-none-any.whl", hash = "sha256:ac76e31bf52b2742c08a9d6629d64878f32dda5c949cd371082e25106c9be7dd"},
+    {file = "mkdocs_material-9.1.8.tar.gz", hash = "sha256:616ef98fc143b3ec8c559e2fec85f32103d2093e9c88333964d93105ea2d670b"},
 ]
 
 [package.dependencies]
@@ -1548,14 +1548,14 @@ url = "cdk"
 
 [[package]]
 name = "setuptools"
-version = "67.7.1"
+version = "67.7.2"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "setuptools-67.7.1-py3-none-any.whl", hash = "sha256:6f0839fbdb7e3cfef1fc38d7954f5c1c26bf4eebb155a55c9bf8faf997b9fb67"},
-    {file = "setuptools-67.7.1.tar.gz", hash = "sha256:bb16732e8eb928922eabaa022f881ae2b7cdcfaf9993ef1f5e841a96d32b8e0c"},
+    {file = "setuptools-67.7.2-py3-none-any.whl", hash = "sha256:23aaf86b85ca52ceb801d32703f12d77517b2556af839621c641fca11287952b"},
+    {file = "setuptools-67.7.2.tar.gz", hash = "sha256:f104fa03692a2602fa0fec6c6a9e63b6c8a968de13e17c026957dd1f53d80990"},
 ]
 
 [package.extras]
