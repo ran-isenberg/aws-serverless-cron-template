@@ -1,4 +1,4 @@
-from aws_cdk import Duration, aws_events, aws_events_targets
+from aws_cdk import aws_events, aws_events_targets
 from aws_cdk import aws_lambda as _lambda
 from constructs import Construct
 
@@ -14,7 +14,12 @@ class LambdaCronRuleConstruct(Construct):
         return aws_events.Rule(
             self,
             f'{id_}MyLambdaCron',
-            schedule=aws_events.Schedule.rate(Duration.minutes(60)),
+            schedule=aws_events.Schedule.cron(
+                minute='0',
+                hour='18',
+                month='*',
+                week_day='MON-FRI',
+            ),
             targets=[aws_events_targets.LambdaFunction(handler=target_lambda,)],
             rule_name=f'{id_}MyLambdaCron',
         )
