@@ -1,0 +1,118 @@
+Build AWS Serverless Scheduled Tasks with Amazon EventBridge and CDK
+Scheduled tasks automate routine and repetitive tasks and reduce the risk of human error. They also ensure that essential tasks are timely, improving productivity and efficiency.
+In the Serverless domain, we have a couple of ways to implement them.
+
+This blog post will teach you to leverage Amazon EventBridge to create scheduled tasks using AWS CDK. You will learn about implementing cron (scheduled) jobs with Amazon EventBridge rules and the new EventBridge scheduler.
+We will go over their differences and implement scheduled tasks using both methods with Python AWS CDK constructs.
+A fully deployable template project and code examples are found here.
+
+ 
+Table of Contents
+Amazon EventBridge
+Amazon EventBridge Rules
+Amazon EventBridge Scheduler
+Scheduler vs. Rules
+The One Time Schedule Use Case
+ CDK Code Samples
+Daily ChatGPT Suggestion with Lambda Function
+Nightly Long Batch Job with Step Function
+ 
+Amazon EventBridge
+Amazon EventBridge is a serverless service that uses events to connect application components together, making it easier for developers to build scalable event-driven
+Amazon EventBridge is one of the cornerstones of event-driven architectures, similar to AWS SNS. It is known for creating rules that trigger when a predefined condition occurs and send an event to many possible AWS service integrations.
+
+We all had to define a scheduled process at one time. I'm old enough to remember we used to call them "cron jobs" back in the happy Linux days when I used to write a cron job process that would make sure my main application was up and running and recreate it; it crashed for some reason. However, it is also quite valuable for the Serverless world.
+
+There are still many use cases where you might need recurring or one-time jobs that run on a specific schedule. Here are a few that come to mind:
+A morning workout suggestion that ChatGPT crafts for you.
+A nightly long batch job Lambda function such as daily reports or database maintenance.
+A one-time email reminding a specific customer that their trial version ends in a week.
+ 
+
+Amazon EventBridge Rules
+EventBridge rules belong to an event bus. There are two rules types:
+Event pattern based
+Scheduled based
+
+
+In the event pattern rules, you define events routed to one or more targets based on pattern match criteria. It has over 20 integrated AWS target types (SNS, SQS, StepFunction, etc.) and includes external AWS partners such as DataDog, PagerDuty, and others.
+It is considered one of the best Serverless event choreography mechanisms that AWS provides (SNS also comes to mind).
+However, we will focus on the second type in this blog post, the scheduled-based rules.
+There are two types of scheduled tasks:
+A fine-grained schedule is defined with a cron expression.
+A rate schedule runs a task at a specific rate (minutes, days, hours).
+
+
+However, it seems that AWS is deprecating the scheduled rules mechanism to the newer scheduler because they try to make us use the new feature in the UI when we select a schedule-based rule but still let us define the older rules mechanism:
+
+
+
+ 
+
+Amazon EventBridge Scheduler
+Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. Highly scalable, EventBridge Scheduler allows you to schedule millions of tasks that can invoke any AWS service as a target.
+Amazon EventBridge scheduler is quite impressive. You can define either recurring or one-time events. For recurring events, you can define them either with a cron expression, i.e., runs at a specific time forever, or at a rate-based time, i.e., every 10 minutes, forever. Eventbrite promises the scheduled event will trigger in the minute range, so it's not exact to the second, but in most cases, that's fine enough.
+As for integrations, there's support for 270 services and over 6000 APIs.
+As for quotas, you have about 1 million scheduled events, which seems more than enough, and even that is a soft limit that can increase.
+
+
+
+Let's figure out the differences between the two mechanism and decide which one is better for Serverless scheduled tasks.
+ 
+Scheduler vs. Rules
+Let's go over the differences between the scheduler and the rules mechanism according to AWS official documentation:
+
+
+The way I see it, the scheduler is better than the rules mechanism in every possible way: it supports a million schedules per account vs. 300, which is ridiculous, has higher throughput, and has over 270 API integration. The API integration means you won't need to spin up a Lambda function to call an API; you could go 100% Serverless without writing any business code or pure configuration.
+In addition, the scheduler does not require a connection to an EventBridge bus; it is its own thing.
+The scheduler supports time zones and daylight saving, simplifying the timing. The one-time schedule opens up the door for many exciting use cases, such as events tailored per customer event, such as sending an email reminder five days before the customer's X trial ends, and another use case since the quota is relatively high (1 million).
+
+The scheduler is a refined and improved version of the older rules mechanism. So, why would you use the older rule mechanism for scheduled tasks? I don't see any reason other than the better CDK constructs support (which is only temporary, see this PR).
+The 300 rules limit might be a deal breaker for many. You get so many more features and an increased quota. The one-time schedule capability is powerful for creating a trigger at a specific date tailored for a customer/tenant event. However, that one million quota might be an issue for enterprise companies with millions of users.
+
+That being said, rules as an event orchestrator are a fantastic tool that is not going anywhere. It allows us to listen for events by a pattern and trigger targets, either AWS services or external partners, without any relation to a specific time; they trigger when the event occurs.
+ 
+The One Time Schedule Use Case
+The one-time scheduler option is unique and exciting, not supported in the rules mechanism. An everyday use case might be related to customer notifications on specific dates.
+You might want to send an SMS/email letting a customer know that their trial version is about to expire or has expired. You may send them a special offer on their birthday. You can do that without a single Lambda function, connect the scheduler to AWS SES and define the email parameters to use. Since you have a quota of 1 million events, it is a viable option.
+
+However, due to the one-time nature, practical use would not be through CDK but by calling AWS API in runtime in a Lambda function.
+However, this feature has a significant downside: expired schedules don't get deleted automatically but still count toward your overall quota, meaning you must delete them yourself.
+If you want to learn how to solve that, I highly recommend Pubudu Jayawardana's post.
+The maximum number of schedules per account. This quota includes one-time schedules that have completed running. We recommend deleting your one-time schedules after they've completed running and invoked a target https://docs.aws.amazon.com/general/latest/gr/eventbridgescheduler.html
+ 
+CDK Code Samples
+Let's see how we can implement the sample use cases with AWS CDK and EventBridge.
+We will look at several real use cases and implement them with EventBridge rules and the scheduler.
+
+Daily ChatGPT Suggestion with Lambda Function
+One of the simplest and most common use cases of scheduled tasks is the rule to Lambda function pattern. It can be either on a rate based or a specific date case.
+For a daily ChatGPT suggestion, you can define a cron job rule that triggers a Lambda function at a set time in the morning. The Lambda function calls ChatGPT API and uses Amazon SES to send an email with the results.
+An AWS Serverless Hero, Allen Helton, did just that and wrote a detailed post about it.
+
+For simple use cases that don't require many steps and finish in less than 15 minutes (the maximum timeout period of a Lambda function), this is a great solution that is easy to test both locally and in an E2E flow. Read here about testing Serverless applications.
+
+
+In lines 13-25, we define the rule with a rate of 6o minutes and a target of a Lambda function.
+Lines 17-20 define the time - 6 PM UTC between Mondays to Fridays.
+Line 23 defines a list of targets. In this example, we have a single Lambda function.
+
+If you wish to use a rate schedule, use this implementation which defines a Lambda function to get invoked every 60 minutes.
+
+
+ 
+Let's define the same use case but with the new scheduler mechanism.
+I want to thank Amanda Quint for her post that helped me define this CFN resource.
+There is no higher-level construct for the scheduler yet, but it is in the works (as of April 28th, 2023).
+
+In lines 14-27, we define a role for the EventBridge scheduler to use; invoking lambda permissions could invoke the target Lambda function.
+In lines 30-47, we define the scheduler CloudFormation low-level CFN object. It is a low-level class that represents a direct CloudFormation definition. The parameters are essentially a parameters dictionary.
+In lines 40-41, we define the schedule expression of 10 AM Sundays to Thursdays with the Jerusalem (Israel) time zone. The scheduler has a more refined time zone support instead of just UTC. It also has support for automatic daylight savings (DST) changes.
+In lines 42-44, we define the target Lambda function to invoke. The Lambda ARN is the same Lambda we permitted the scheduler role to invoke.
+ 
+Nightly Long Batch Job with Step Function
+If you must run a process that takes more than the Lambda function's maximum time, which is 15 minutes, you can spin up a step function and orchestrate the batch job.
+Here's a sample construct that creates a Step function with one state and an EventBridge rule that triggers it daily at 6 PM UTC.
+
+In lines 14-24 we creates a State Machine with one step that waits for 10 seconds and completes successfully.
+In line 39 we set the target of the rule to the state machine we created in line 14.
