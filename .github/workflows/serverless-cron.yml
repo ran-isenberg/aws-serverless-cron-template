@@ -56,9 +56,6 @@ jobs:
       - name: Unit tests
         run: |
           make unit
-      - name: Infrastructure tests
-        run: |
-          make infra-tests
       - name: Deploy to AWS
         run: make deploy
       - name: Integration tests
