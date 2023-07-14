@@ -8,8 +8,13 @@ class Observability(BaseModel):
     LOG_LEVEL: Literal['DEBUG', 'INFO', 'ERROR', 'CRITICAL', 'WARNING', 'EXCEPTION']
 
 
-class RuleEnvVars(Observability):
+class SqsEnvVars(Observability):
     ...
+
+
+class DlqEnvVars(Observability):
+    SQS_ARN: Annotated[str, Field(min_length=1)]
+    DLQ_ARN: Annotated[str, Field(min_length=1)]
 
 
 class SchedulerEnvVars(Observability):
