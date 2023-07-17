@@ -1,11 +1,11 @@
 from typing import Any, Dict
 
 import boto3
+from aws_lambda_env_modeler import get_environment_variables, init_environment_variables
 from aws_lambda_powertools.utilities.typing import LambdaContext
 from botocore.exceptions import ClientError
 
 from service.handlers.schemas.env_vars import DlqEnvVars
-from service.handlers.utils.env_vars_parser import get_environment_variables, init_environment_variables
 from service.handlers.utils.observability import logger
 
 

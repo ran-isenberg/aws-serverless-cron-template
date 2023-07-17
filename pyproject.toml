@@ -23,6 +23,7 @@ aws-lambda-powertools =  {git = "https://github.com/aws-powertools/powertools-la
 cachetools = "*"
 boto3 = "^1.26.125"
 tenacity = "^8.2.2"
+aws-lambda-env-modeler = "*"
 
 [tool.poetry.dev-dependencies]
 # CDK

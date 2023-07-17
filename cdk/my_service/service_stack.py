@@ -8,13 +8,12 @@ from aws_cdk import aws_logs
 from aws_cdk.aws_lambda_python_alpha import PythonLayerVersion
 from constructs import Construct
 from git import Repo
-# from my_service.lambda_cron_rules import LambdaCronRuleConstruct  # type: ignore
-# from my_service.scheduler_cron import SchedulerCronConstruct  # type: ignore
+from my_service.lambda_cron_rules import LambdaCronRuleConstruct  # type: ignore
+from my_service.scheduler_cron import SchedulerCronConstruct  # type: ignore
 from my_service.sqs_redrive import SqsRedrive  # type: ignore
+from my_service.stepfunc_cron_rules import StepFuncCronRuleConstruct  # type: ignore
 
 import cdk.my_service.constants as constants
-
-# from my_service.stepfunc_cron_rules import StepFuncCronRuleConstruct  # type: ignore
 
 
 def get_username() -> str:
@@ -45,9 +44,9 @@ class ServiceStack(Stack):
         self.target_lambda = self._create_target_lambda(self.layer)
         self.sqs_lambda = self._create_sqs_lambda(self.layer)
         self.dlq_lambda = self._create_dlq_lambda(self.layer)
-        # self.lambdas_rule = LambdaCronRuleConstruct(self, self.shorten_construct_id('lambda_rule'), self.target_lambda)
-        # self.state_func_rule = StepFuncCronRuleConstruct(self, self.shorten_construct_id('step_func_rule'))
-        # self.scheduler = SchedulerCronConstruct(self, self.shorten_construct_id('scheduler_lambda'), self.target_lambda)
+        self.lambdas_rule = LambdaCronRuleConstruct(self, self.shorten_construct_id('lambda_rule'), self.target_lambda)
+        self.state_func_rule = StepFuncCronRuleConstruct(self, self.shorten_construct_id('step_func_rule'))
+        self.scheduler = SchedulerCronConstruct(self, self.shorten_construct_id('scheduler_lambda'), self.target_lambda)
         self.redrive = SqsRedrive(self, self.shorten_construct_id('redrive'), self.sqs_lambda, self.dlq_lambda)
 
     def shorten_construct_id(self, construct_name: str) -> str:
