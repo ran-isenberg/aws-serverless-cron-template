@@ -138,13 +138,13 @@ typeguard = ">=2.13.3,<2.14.0"
 
 [[package]]
 name = "aws-lambda-env-modeler"
-version = "1.0.1"
+version = "1.0.2"
 description = "AWS-Lambda-Env-Modeler is a Python library designed to simplify the process of managing and validating environment variables in your AWS Lambda functions."
 optional = false
 python-versions = ">=3.8.17,<4.0.0"
 files = [
-    {file = "aws_lambda_env_modeler-1.0.1-py3-none-any.whl", hash = "sha256:0f32fa5bc6ce9c666dd4c715397dc7787060a5912eef9157419e38aefa5cb39f"},
-    {file = "aws_lambda_env_modeler-1.0.1.tar.gz", hash = "sha256:6f34aff0953cf37acf6b112ff1ea31a07e6d0400f74c682e5881831c107b6cc9"},
+    {file = "aws_lambda_env_modeler-1.0.2-py3-none-any.whl", hash = "sha256:c394a2acfdca79711a35f2d163f4fc8b198b779bc2662c6f506e883864c5a12f"},
+    {file = "aws_lambda_env_modeler-1.0.2.tar.gz", hash = "sha256:27cce2be013084cfabf7758662bfaf605ae0754d88c87c5dbe91de2c58fd73ab"},
 ]
 
 [package.dependencies]
@@ -152,7 +152,7 @@ pydantic = ">=2.0.0,<3.0.0"
 
 [[package]]
 name = "aws-lambda-powertools"
-version = "2.19.0"
+version = "2.20.0"
 description = "Powertools for AWS Lambda (Python) is a developer toolkit to implement Serverless best practices and increase developer velocity."
 optional = false
 python-versions = "^3.7.4"
@@ -174,7 +174,7 @@ validation = ["fastjsonschema (>=2.14.5,<3.0.0)"]
 type = "git"
 url = "https://github.com/aws-powertools/powertools-lambda-python"
 reference = "poc/pydanticv2"
-resolved_reference = "3d5c9b2399e83a747a063e05ccd1ca612f4db1fa"
+resolved_reference = "1774a1c09b8c1443e91d28905ec96b955869865f"
 
 [[package]]
 name = "aws-xray-sdk"
@@ -267,13 +267,13 @@ ujson = ["ujson (>=5.4.0,<6.0.0)"]
 
 [[package]]
 name = "cdk-nag"
-version = "2.27.70"
+version = "2.27.72"
 description = "Check CDK v2 applications for best practices using a combination on available rule packs."
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "cdk-nag-2.27.70.tar.gz", hash = "sha256:d0d9f69c38686148aaf42fcb3e93525817c9bceef98a404c8af946e9c25c3b12"},
-    {file = "cdk_nag-2.27.70-py3-none-any.whl", hash = "sha256:27d16fcc94867ec37cb6d640442cb8ea74b44a35638146437b6b993ef35c053e"},
+    {file = "cdk-nag-2.27.72.tar.gz", hash = "sha256:fa8092db1c66e05adc69bdce5376d885adbeb54a16f6b3c5e8092a1f87091f37"},
+    {file = "cdk_nag-2.27.72-py3-none-any.whl", hash = "sha256:2bd3946f760da9aae9d4c8bce3941a90a1dc31392bd681289312b73ae556c5b7"},
 ]
 
 [package.dependencies]
@@ -507,13 +507,13 @@ toml = ["tomli"]
 
 [[package]]
 name = "distlib"
-version = "0.3.6"
+version = "0.3.7"
 description = "Distribution utilities"
 optional = false
 python-versions = "*"
 files = [
-    {file = "distlib-0.3.6-py2.py3-none-any.whl", hash = "sha256:f35c4b692542ca110de7ef0bea44d73981caeb34ca0b9b6b2e6d7790dda8f80e"},
-    {file = "distlib-0.3.6.tar.gz", hash = "sha256:14bad2d9b04d3a36127ac97f30b12a19268f211063d8f8ee4f47108896e11b46"},
+    {file = "distlib-0.3.7-py2.py3-none-any.whl", hash = "sha256:2e24928bc811348f0feb63014e97aaae3037f2cf48712d51ae61df7fd6075057"},
+    {file = "distlib-0.3.7.tar.gz", hash = "sha256:9dafe54b34a028eafd95039d5e5d4851a13734540f1331060d31c9916e7147a8"},
 ]
 
 [[package]]
@@ -803,13 +803,13 @@ files = [
 
 [[package]]
 name = "jsii"
-version = "1.84.0"
+version = "1.85.0"
 description = "Python client for jsii runtime"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "jsii-1.84.0-py3-none-any.whl", hash = "sha256:7748205665d079112721d6eb23a37fa084722ab675f65e8a6514ec908660bd57"},
-    {file = "jsii-1.84.0.tar.gz", hash = "sha256:29f8352525e980e126d5d0fd3510fff9a81a8dbc36249f99d922907f2e6bf4c3"},
+    {file = "jsii-1.85.0-py3-none-any.whl", hash = "sha256:379feb1a1a3c4e449307564f42a7cddef05e43760cbfbbfe8434f6448cd668a0"},
+    {file = "jsii-1.85.0.tar.gz", hash = "sha256:b77194cf053c06c6bdffc887a4d1d2a41113c6f4780a7d78d70a780a70998008"},
 ]
 
 [package.dependencies]
@@ -1092,13 +1092,13 @@ files = [
 
 [[package]]
 name = "platformdirs"
-version = "3.9.0"
+version = "3.9.1"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "platformdirs-3.9.0-py3-none-any.whl", hash = "sha256:16a642e216f72f16a0bf0026468135d8ffd34a3e17ad0875b030f16f3cba5cbb"},
-    {file = "platformdirs-3.9.0.tar.gz", hash = "sha256:363fe3800e9c0227721c56eea50ae30c52c57ca7865def61ea9ebad133fe4445"},
+    {file = "platformdirs-3.9.1-py3-none-any.whl", hash = "sha256:ad8291ae0ae5072f66c16945166cb11c63394c7a3ad1b1bc9828ca3162da8c2f"},
+    {file = "platformdirs-3.9.1.tar.gz", hash = "sha256:1b42b450ad933e981d56e59f1b97495428c9bd60698baab9f3eb3d00d5822421"},
 ]
 
 [package.extras]
