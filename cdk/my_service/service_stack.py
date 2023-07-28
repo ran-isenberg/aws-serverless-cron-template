@@ -57,7 +57,7 @@ class ServiceStack(Stack):
             self,
             constants.LAMBDA_LAYER_NAME,
             entry=constants.COMMON_LAYER_BUILD_FOLDER,
-            compatible_runtimes=[_lambda.Runtime.PYTHON_3_10],
+            compatible_runtimes=[_lambda.Runtime.PYTHON_3_11],
             removal_policy=RemovalPolicy.DESTROY,
         )
 
@@ -71,7 +71,7 @@ class ServiceStack(Stack):
         return _lambda.Function(
             self,
             f'{self.id_}SchedulerJob',
-            runtime=_lambda.Runtime.PYTHON_3_10,
+            runtime=_lambda.Runtime.PYTHON_3_11,
             code=_lambda.Code.from_asset('.build/lambdas/'),
             handler='service.handlers.scheduler_func.start_cron_job',
             environment={
@@ -97,7 +97,7 @@ class ServiceStack(Stack):
         return _lambda.Function(
             self,
             f'{self.id_}SQS',
-            runtime=_lambda.Runtime.PYTHON_3_10,
+            runtime=_lambda.Runtime.PYTHON_3_11,
             code=_lambda.Code.from_asset('.build/lambdas/'),
             handler='service.handlers.sqs_func.handle_sqs_batch',
             environment={
@@ -135,7 +135,7 @@ class ServiceStack(Stack):
         return _lambda.Function(
             self,
             f'{self.id_}DLQ',
-            runtime=_lambda.Runtime.PYTHON_3_10,
+            runtime=_lambda.Runtime.PYTHON_3_11,
             code=_lambda.Code.from_asset('.build/lambdas/'),
             handler='service.handlers.dlq_func.dlq_handler',
             environment={
