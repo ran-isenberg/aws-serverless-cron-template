@@ -21,7 +21,7 @@ pydantic = {version = "^2.0.3"}
 email-validator = {version = "*"}
 aws-lambda-powertools =  {extras = ["tracer"],version = "^2.22.0"}
 cachetools = "*"
-boto3 = "^1.26.125"
+boto3 = "^1.28.16"
 tenacity = "^8.2.2"
 aws-lambda-env-modeler = "*"
 
